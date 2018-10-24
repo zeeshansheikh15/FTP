@@ -155,8 +155,10 @@ public class GossipServer
             pwrite.println(sendMessage);             
             pwrite.flush();
         }else if(command.equalsIgnoreCase("cd")){
-            String cwd = System.getProperty("user.dir");
-            sendMessage = cwd;
+            System.setProperty( "user.dir", directory );
+                String cwd = System.getProperty("user.dir");
+                 String out1 = "successfull directory change "+cwd; 
+            sendMessage = out1;
             pwrite.println(sendMessage);             
             pwrite.flush();
         }
